@@ -1,34 +1,38 @@
-
-
-puts "=====CALCULADORA====="
-puts "Selecione as opções abaixo:"
-
-puts "1) Adição"
-puts "2) Subtração"
-puts "3) Mutiplicação"
-puts "4) Divisão"
-puts "5) Sair"
-
-operacao = gets.chomp.to_i
-
-puts "Digite o primeiro número:"
-n1 = gets.chomp.to_i
-puts "Digite o segundo numero:"
-n2 = gets.chomp.to_i
-
-case operacao
-when 1 #Adição
-  result = n1 + n2
-when 2 #Subtração
-  result = n1 - n2
-when 3 #Mutiplicação
-  result = n1 * n2
-when 4 #Divisão
-  result = n1 / n2
-when 5
-  break
-else
-  puts "Opção invalida"
+result = ''
+loop do
+ puts result 
+ puts 'Selecione uma das seguintes opções'
+ puts '1- Adicionar'
+ puts '2- Subtrair'
+ puts '3- Multiplicar'
+ puts '4- Dividir'
+ puts '0- Sair'
+ print 'Opção: '
+ 
+ option = gets.chomp.to_i
+ 
+ case option 
+ when 1..4
+   print 'Digite o primeiro número: '
+   number1 = gets.chomp.to_i
+   
+   print 'Digite o segundo número: '
+   number2 = gets.chomp.to_i
+   case option 
+   when 1
+     result = "#{number1} + #{number2} = #{number1 + number2}"
+   when 2
+     result = "#{number1} - #{number2} = #{number1 - number2}"
+   when 3
+     result = "#{number1} * #{number2} = #{number1 * number2}"
+   when 4
+     result = "#{number1} / #{number2} = #{number1 / number2}"
+   end
+ when 0
+   break
+ else 
+   result = 'Opção inválida'
+ end
+ # Comando que limpa o console
+ system "clear"
 end
-
-puts "O resultado é #{result}"
